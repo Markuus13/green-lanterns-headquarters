@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  get 'tickets', to: 'tickets#index'
+  root 'tickets#index'
 end
