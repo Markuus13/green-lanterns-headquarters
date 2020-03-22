@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Link changes the class when hovered 1`] = `
+<table>
+  <thead>
+    <tr>
+      <th>
+        Número do Chamado
+      </th>
+      <th>
+        Título
+      </th>
+      <th>
+        Descrição
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        1
+      </td>
+      <td>
+        first
+      </td>
+      <td>
+        ameno
+      </td>
+    </tr>
+    <tr>
+      <td>
+        2
+      </td>
+      <td>
+        second
+      </td>
+      <td>
+        dorime
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
