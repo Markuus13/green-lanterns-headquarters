@@ -1,1 +1,6 @@
-oi
+<% @tickets.each do |ticket| %>
+  <div>
+    <p><%= ticket.title %></p>
+    <p><%= ticket.description %>
+  <div>
+<% end %>
