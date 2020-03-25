@@ -1,3 +1,9 @@
+<h1>Fila Verde</h1>
+
+<% if @tickets.empty? %>
+  <p>Parece que o universo está em paz, mas não por muito tempo...</p>
+<% end %>
+
 <% @tickets.each do |ticket| %>
   <div>
     <p><%= ticket.title %></p>

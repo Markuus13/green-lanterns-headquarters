@@ -15,5 +15,16 @@ RSpec.describe 'Tickets requests', type: :request do
       tickets_titles = tickets.map(&:title)
       expect(response.body).to include(*tickets_titles)
     end
+
+    describe 'when tickets list is empty' do
+      let(:empty_message) { 'Parece que o universo está em paz, mas não por muito tempo...' }
+
+      before { tickets.each(&:destroy) }
+
+      it 'shows a message' do
+        get '/tickets'
+        expect(response.body).to include(empty_message)
+      end
+    end
   end
 end
