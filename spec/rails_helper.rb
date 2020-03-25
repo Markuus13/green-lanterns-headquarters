@@ -10,7 +10,6 @@ require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
 require 'database_cleaner/active_record'
 
-
 # Shoulda Matchers
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|
@@ -57,6 +56,9 @@ RSpec.configure do |config|
 
   # Mocks with Mocha
   config.mock_with :mocha
+
+  # FactoryBot methodss
+  config.include FactoryBot::Syntax::Methods
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   # config.fixture_path = "#{::Rails.root}/spec/fixtures"
