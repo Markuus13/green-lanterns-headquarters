@@ -27,4 +27,31 @@ RSpec.describe 'Tickets requests', type: :request do
       end
     end
   end
+
+  describe 'POST /tickets' do
+    let(:valid_attributes) do
+      {
+        ticket: {
+          title: 'Something happened',
+          description: 'Explanation'
+        }
+      }
+    end
+
+    subject { post '/tickets', params: valid_attributes }
+
+    it 'returns status code 201' do
+      subject
+      expect(response).to have_http_status(201)
+    end
+
+    it 'creates a ticket' do
+      expect { subject }.to change { Ticket.count }.from(0).to(1)
+    end
+
+    it 'returns created ticket' do
+      subject
+      expect(JSON.parse(response.body)['title']).to eq(valid_attributes[:ticket][:title])
+    end
+  end
 end
