@@ -1,24 +1,10 @@
-# README
+# Green Lanterns Headquarters
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Tickets support system. This project is a spin-off of BCU.
 
-Things you may want to cover:
+# Todo List
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- As a User I want to open new tickets so I can be served
+- As a salesperson I want to show what is happening with more frequency so the green lanterns can give more attention to that cases
+- As a Green Lantern I want to reorder tickets so I can make visible to the rest of team what is the current priorities
+- As a Green Lantern I want to mark a ticket as doing/done so the team can see what is happening
