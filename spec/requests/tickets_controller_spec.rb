@@ -8,7 +8,7 @@ RSpec.describe 'Tickets requests', type: :request do
     before { get '/tickets' }
 
     it 'returns status code 200' do
-      expect(response).to have_http_status(200)
+      expect(response).to have_http_status(:ok)
     end
 
     it 'shows tickets titles in its body' do
@@ -42,7 +42,7 @@ RSpec.describe 'Tickets requests', type: :request do
 
     it 'returns status code 201' do
       subject
-      expect(response).to have_http_status(201)
+      expect(response).to have_http_status(:created)
     end
 
     it 'creates a ticket' do
