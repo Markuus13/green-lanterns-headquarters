@@ -1,12 +1,40 @@
 <h1>Fila Verde</h1>
 
-<% if @tickets.empty? %>
-  <p>Parece que o universo está em paz, mas não por muito tempo...</p>
-<% end %>
+<main class="oa-panel">
+  <% if @tickets.empty? %>
+    <p>Parece que o universo está em paz, mas não por muito tempo...</p>
+  <% end %>
 
-<% @tickets.each do |ticket| %>
-  <div>
-    <p><%= ticket.title %></p>
-    <p><%= ticket.description %>
-  <div>
-<% end %>
+  <% @tickets.each do |ticket| %>
+    <div class="oa-card">
+      <div class="oa-card-title">
+        <%= ticket.title %>
+      </div>
+      <div class="oa-card-body">
+        <%= ticket.description %>
+      </div>
+    </div>
+  <% end %>
+</main>
+
+<style>
+.oa-card {
+  background-color: #000;
+  color: white;
+  margin: 1em;
+  border-radius: 5px;
+  padding: 1em 1.6em 2em 1.6em;
+}
+
+.oa-card:hover {
+  background-color: #111
+}
+
+.oa-card-title {
+  font-weight: bold;
+  font-size: 1.7em;
+  margin-bottom: 1em;
+}
+</style>
+
+
