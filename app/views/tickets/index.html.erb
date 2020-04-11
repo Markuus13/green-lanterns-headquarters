@@ -1,6 +1,8 @@
 <h1>Fila Verde</h1>
 
 <main class="oa-panel">
+  <%= react_component 'TicketForm' %>
+
   <% if @tickets.empty? %>
     <p>Parece que o universo está em paz, mas não por muito tempo...</p>
   <% end %>
