@@ -4,8 +4,13 @@ class TicketsController < ApplicationController
   end
 
   def create
-    ticket = Ticket.create(ticket_params)
-    render json: ticket, status: :created
+    ticket = Ticket.new(ticket_params)
+
+    if ticket.save
+      render json: ticket, status: :created
+    else
+      render json: { errors: ticket.errors.messages }, status: :unprocessable_entity
+    end
   end
 
   private def ticket_params

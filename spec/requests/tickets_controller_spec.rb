@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe 'Tickets requests', type: :request do
-
   describe 'GET /tickets' do
     let!(:tickets) { create_list(:ticket, 3) }
 
@@ -52,6 +51,35 @@ RSpec.describe 'Tickets requests', type: :request do
     it 'returns created ticket' do
       subject
       expect(JSON.parse(response.body)['title']).to eq(valid_attributes[:ticket][:title])
+    end
+
+    context 'when params are invalid' do
+      let(:invalid_attributes) do
+        {
+          ticket: {
+            title: '',
+            description: 'Only description'
+          }
+        }
+      end
+
+      subject { post '/tickets', params: invalid_attributes }
+
+      it 'returns status code 422' do
+        subject
+        expect(response).to have_http_status(:unprocessable_entity)
+      end
+
+      it 'does not create a new ticket' do
+        expect { subject }.to_not change { Ticket.count }
+      end
+
+      it 'returns error explanation messages' do
+        subject
+        expect(JSON.parse(response.body)['errors']).to eq({
+          'title' => ["can't be blank"]
+        })
+      end
     end
   end
 end
