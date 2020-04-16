@@ -77,7 +77,7 @@ RSpec.describe 'Tickets requests', type: :request do
       it 'returns error explanation messages' do
         subject
         expect(JSON.parse(response.body)['errors']).to eq({
-          'title' => ["can't be blank"]
+          'messages' => ["Title can't be blank"]
         })
       end
     end

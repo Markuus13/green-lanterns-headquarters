@@ -9,7 +9,11 @@ class TicketsController < ApplicationController
     if ticket.save
       render json: ticket, status: :created
     else
-      render json: { errors: ticket.errors.messages }, status: :unprocessable_entity
+      render json: {
+        errors: {
+          messages: ticket.errors.full_messages
+        }
+      }, status: :unprocessable_entity
     end
   end
 
